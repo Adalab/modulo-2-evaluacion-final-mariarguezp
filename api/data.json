@@ -1,0 +1,53 @@
+{
+  "request_hash": "request:search:b5021fb5569664933c0ddceeeda2cfdfbe5ad745",
+  "request_cached": true,
+  "request_cache_expiry": 167100,
+  "results": [
+    {
+      "mal_id": 1735,
+      "url": "https://myanimelist.net/anime/1735/Naruto__Shippuuden",
+      "image_url": "https://cdn.myanimelist.net/images/anime/5/17407.jpg?s=2bf24a22a339223dcadb1cdfc3307b61",
+      "title": "Naruto: Shippuuden",
+      "airing": false,
+      "synopsis": "It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the myster...",
+      "type": "TV",
+      "episodes": 500,
+      "score": 8.23,
+      "start_date": "2007-02-15T00:00:00+00:00",
+      "end_date": "2017-03-23T00:00:00+00:00",
+      "members": 1969677,
+      "rated": "PG-13"
+    },
+    {
+      "mal_id": 16870,
+      "url": "https://myanimelist.net/anime/16870/The_Last__Naruto_the_Movie",
+      "image_url": "https://cdn.myanimelist.net/images/anime/10/67631.jpg?s=d84468711f6c7b6c122e4822fb4ab805",
+      "title": "The Last: Naruto the Movie",
+      "airing": false,
+      "synopsis": "Two years have passed since the end of the Fourth Great Ninja War. Konohagakure has remained in a state of peace and harmony\u2014until Sixth Hokage Kakashi Hatake notices the moon is dangerously approachi...",
+      "type": "Movie",
+      "episodes": 1,
+      "score": 7.77,
+      "start_date": "2014-12-06T00:00:00+00:00",
+      "end_date": "2014-12-06T00:00:00+00:00",
+      "members": 473701,
+      "rated": "PG-13"
+    },
+    {
+      "mal_id": 28755,
+      "url": "https://myanimelist.net/anime/28755/Boruto__Naruto_the_Movie",
+      "image_url": "https://cdn.myanimelist.net/images/anime/4/78280.jpg?s=9d8b257b29ff99f0f136562547d0d465",
+      "title": "Boruto: Naruto the Movie",
+      "airing": false,
+      "synopsis": "The spirited Boruto Uzumaki, son of Seventh Hokage Naruto, is a skilled ninja who possesses the same brashness and passion his father once had. However, the constant absence of his father, who is busy...",
+      "type": "Movie",
+      "episodes": 1,
+      "score": 7.44,
+      "start_date": "2015-08-07T00:00:00+00:00",
+      "end_date": "2015-08-07T00:00:00+00:00",
+      "members": 390094,
+      "rated": "PG-13"
+    }
+  ],
+  "last_page": 20
+}
