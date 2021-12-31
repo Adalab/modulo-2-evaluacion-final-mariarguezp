@@ -57,7 +57,7 @@ function showSeriesListSection() {
 }
 
 function renderSeriesList() {
-  let listSeriesCode = "";
+  let listSeriesCode = '';
   for (const serie of series) {
     listSeriesCode += getSeriesListHTMLCode(serie);
   }
@@ -76,7 +76,6 @@ function listenListItems() {
 
 //Handler: añadir serie seleccionada a lista de favoritas
 function handleClickFav(event) {
-  console.log(series, event.target.dataset.id);
   const selectedSeries = parseInt(event.target.dataset.id);
   let foundSeries;
   for (const serie of series) {
@@ -85,6 +84,8 @@ function handleClickFav(event) {
     }    
   }
   favSeries.push(foundSeries);
+  showFavListSection();
+  renderFavList();
 }
 
 //Handlers
@@ -95,3 +96,24 @@ function handleClickSearch(event) {
 
 //Eventos
 searchBtnEl.addEventListener("click", handleClickSearch);
+
+
+
+//Pintar listado de favoritas
+function getFavListHTMLCode(fav) {
+  const htmlCode = `<li class = "js_list_item" data-id = "${fav.mal_id}">${fav.title}
+    <img src="${fav.image_url}" alt="Cartel de la serie" data-id = "${fav.mal_id}">
+  </li>`;
+  return htmlCode;
+}
+
+function showFavListSection() {
+  favListSection.classList.remove('hidden');
+}
+
+function renderFavList() {
+  favListEl.innerHTML = '';
+  for (const fav of favSeries) {
+    favListEl.innerHTML += getFavListHTMLCode(fav);
+  }
+}
