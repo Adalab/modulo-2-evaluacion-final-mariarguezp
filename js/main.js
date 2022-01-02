@@ -47,8 +47,8 @@ function compare() {
 
 //Pintar listado de series
 function getSeriesListHTMLCode(serie) {
-  const htmlCode = `<li class = "js_list_item" data-id = "${serie.mal_id}">${serie.title}
-    <img src="${serie.image_url}" alt="Cartel de la serie" data-id = "${serie.mal_id}">
+  const htmlCode = `<li class ="results__item js_list_item" data-id = "${serie.mal_id}">${serie.title}
+    <img class="results__image" src="${serie.image_url}" alt="Cartel de la serie" data-id = "${serie.mal_id}">
   </li>`;
   return htmlCode;
 }
@@ -129,8 +129,8 @@ function listenListItems() {
 
 //Pintar listado de favoritas
 function getFavListHTMLCode(fav) {
-  const htmlCode = `<li class = "js_list_item" data-id = "${fav.mal_id}">${fav.title}
-    <img src="${fav.image_url}" alt="Cartel de la serie" data-id = "${fav.mal_id}">
+  const htmlCode = `<li class ="favorites__item js_list_item" data-id = "${fav.mal_id}">${fav.title}
+    <img class ="favorites__image" src="${fav.image_url}" alt="Cartel de la serie" data-id = "${fav.mal_id}">
   </li>`;
   return htmlCode;
 }

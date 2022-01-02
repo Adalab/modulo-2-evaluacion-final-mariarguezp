@@ -7,25 +7,25 @@
     <link rel="stylesheet" href="./css/main.css">
     <title>Buscador de Series de Anime</title>
 </head>
-<body>
+<body class="body">
     <main>
-        <section>
-            <h1>Buscador de series de anime</h1>
+        <section class="form__section">
+            <h1 class="form__section--title">Buscador de series de anime</h1>
             <form action="#" method="post">
-                <input class="js_search_input" type="text" name="search_input" id="search_input" placeholder="Escribe aquí tu búsqueda...">
-                <input class="js_search_btn" type="submit" value="Buscar">
-                <input class="js_reset_btn" type="submit" value="Reset">
+                <input class="form__section--input js_search_input" type="text" name="search_input" id="search_input" placeholder="Escribe aquí tu búsqueda...">
+                <input class="form__section--button js_search_btn" type="submit" value="Buscar">
+                <!-- <input class="js_reset_btn" type="submit" value="Reset"> -->
             </form>
         </section>
         <div class="container">
-            <section class="js_series_list_section hidden">
-                <h2>Resultados</h2>
-                <ul class="js_series_list">
+            <section class="results__section js_series_list_section hidden">
+                <h2 class="results__title">Resultados</h2>
+                <ul class="results__list js_series_list">
             
                 </ul>
             </section>
-            <section class="js_fav_list_section hidden">
-                <h2>Series favoritas</h2>
+            <section class="favorites__section js_fav_list_section hidden">
+                <h2 class="favorites__title">Series favoritas</h2>
                 <ul class="js_fav_list">
                 </ul>
             </section>

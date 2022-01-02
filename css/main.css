@@ -1,24 +1,136 @@
-.hidden {
-    display: none;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.fav {
-    background-color: palevioletred;
-    color: lawngreen;
+.body {
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__section {
+    width: 100%;
+    margin: 10px 0 60px;
+}
+
+.form__section--title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.form__section--button {
+    margin: 0 10px;
+    padding: 5px;
+    background-color: teal;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.form__section--input {
+    width: 40%;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border: 1px aqua solid;
+    font-size: 12px;
 }
 
 .container {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row-reverse;
+    justify-content: left;
 }
 
-.js_series_list_section {
+.favorites__section {
+    margin-bottom: 20px;
+    width: 30%;
+    height: 100%;
+    background-color: black;
+    border: 2px plum solid;
+    border-radius: 3px;
+    color: black;
+}
+.favorites__title {
+    padding: 5px 0;
+    width: 100%;
+    background-color: plum;
+    font-size: 14px;
+    text-align: center;
+}
+
+.favorites__item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    align-items: center;
+    padding: 8px 15px;
+    color: plum;
+    font-size: 14px;
+}
+
+.favorites__image {
+    margin-right: 15px;
+    width: 60px;
+}
+
+.results__section {
+    margin-left: 20px;
+    margin-bottom: 20px;
     width: 60%;
-    background-color: lightblue;
+    height: 100%;
+    background-color: black;
+    border: 2px white solid;
+    border-radius: 3px;
+    color: black;
 }
 
-.js_fav_list_section {
-    width: 40%;
-    background-color: lightgoldenrodyellow;
+.results__list {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 8px 10px;
+}
+
+.results__title {
+    padding: 5px 0;
+    width: 100%;
+    background-color: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+.results__item {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 0 10px;
+    width: 160px;
+    height: 250px;
+    list-style: none;
+    color: white;
+    font-size: 14px;
+}
+
+.results__image {
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.fav {
+    border: 3px aqua solid;
+    border-radius: 5px;
+    color: aqua;
+}
+
+.hidden {
+    display: none;
 }
