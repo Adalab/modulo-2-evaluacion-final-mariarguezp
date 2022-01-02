@@ -15,6 +15,7 @@ let series = [];
 let favSeries = [];
 
 //Funciones
+
 //Búsqueda
 //Obtener datos del API y guardarlos en array
 function getSeriesData() {
@@ -53,7 +54,7 @@ function getSeriesListHTMLCode(serie) {
 }
 
 function showSeriesListSection() {
-  seriesListSection.classList.toggle('hidden');
+  seriesListSection.classList.remove('hidden');
 }
 
 function renderSeriesList() {
@@ -65,27 +66,47 @@ function renderSeriesList() {
   listenListItems();
 }
 
-//Escuchar eventos en elementos de la lista de series
-function listenListItems() {
-  const listItemsEl = document.querySelectorAll('.js_list_item');
-
-  for (const listItem of listItemsEl) {
-    listItem.addEventListener('click', handleClickFav);
-  }
-}
-
 //Handler: añadir serie seleccionada a lista de favoritas
 function handleClickFav(event) {
+
+  //Modifico la apariencia de la serie seleccionada
+  const clickedSeries = event.target;
+  clickedSeries.classList.toggle('fav');
+
+  //Obtengo el id de la serie seleccionada
   const selectedSeries = parseInt(event.target.dataset.id);
+
+  //Busco la serie seleccionada en el array de favoritas
+  let foundFav;
+  for (const fav of favSeries) {
+    if (fav.mal_id === selectedSeries) {
+      foundFav = fav;
+    }   
+  }
+
+  if (foundFav === undefined) {
+      //Busco la serie seleccionada en el array 
   let foundSeries;
   for (const serie of series) {
     if (serie.mal_id === selectedSeries) {
       foundSeries = serie;
-    }    
+    }   
   }
+
+  //Añado la serie seleccionada al array de favoritas
   favSeries.push(foundSeries);
+
+  } else {
+
+    //Elimino la serie del array de favoritas
+    for (let i = 0; i < favSeries.length; i++) {
+      favSeries.splice(foundFav[i], 1);
+    }
+  }
+
   showFavListSection();
   renderFavList();
+  saveFavInLocalStorage();
 }
 
 //Handlers
@@ -97,7 +118,14 @@ function handleClickSearch(event) {
 //Eventos
 searchBtnEl.addEventListener("click", handleClickSearch);
 
+//Escuchar eventos en elementos de la lista de series
+function listenListItems() {
+  const listItemsEl = document.querySelectorAll('.js_list_item');
 
+  for (const listItem of listItemsEl) {
+    listItem.addEventListener('click', handleClickFav);
+  }
+}
 
 //Pintar listado de favoritas
 function getFavListHTMLCode(fav) {
@@ -117,3 +145,19 @@ function renderFavList() {
     favListEl.innerHTML += getFavListHTMLCode(fav);
   }
 }
+
+function saveFavInLocalStorage() {
+  const favSeriesString = JSON.stringify(favSeries);
+  localStorage.setItem('Favorite Series', favSeriesString);
+}
+
+function getFavFromLocalStorage() {
+  const localStorageFavList = localStorage.getItem('Favorite Series');
+  if (localStorageFavList !== null) {
+    favSeries = JSON.parse(localStorageFavList);
+    showFavListSection();
+    renderFavList();
+  }
+}
+
+getFavFromLocalStorage();
