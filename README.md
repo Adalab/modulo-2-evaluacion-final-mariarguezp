@@ -2,15 +2,28 @@
 
 # Módulo 2. Evaluación final
 
-Maquetación de una web responsive (versión mobile, tablet y desktop) utilizando Adalab Web Starter Kit, Sass, flexbox, CSS Grid, media queries y transiciones (para resolver distintas interacciones).
+Desarrollo de una aplicación web de búsqueda de series de anime, que genere una lista de resultados en función de nuestra búsqueda, y nos permita añadir las series deseadas a una segunda lista de series favoritas, las cuales quedarán guardadas en el almacenamiento local de nuestro navegador.
+
+**Cómo utilizar la web**
+
+Para usar la web haz click en el link que aparece al inicio de este documento.
+Podrás buscar la serie utilizando la caja de texto y clickando en el botón 'Buscar'.
+Para añadir una serie a la lista de favoritos, haz click sobre ella.
+Para eliminar una serie de la lista de favoritos, clicka de nuevo sobre ella, o bien, haz click en el icono 'x' que aparece junto al título de la serie en la lista de favoritos.
+Si quieres borrar todo, haz click en el botón 'Reset'.
 
 ## Construido con 🛠️
 
-<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://gulpjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gulp/gulp-plain.svg" alt="gulp" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> </p>
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
 
 ## Autora ✒️
 
 * **María Rodríguez** - [mariarguezp](https://github.com/mariarguezp)
+
+**Redes**
+<p align="left">
+<a href="https://linkedin.com/in/mariarguezp" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mariarguezp" height="30" width="40" /></a>
+</p>
 
 ## Licencia 📄
 
