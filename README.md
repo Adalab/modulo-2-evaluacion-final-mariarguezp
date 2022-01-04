@@ -4,13 +4,13 @@
 
 Desarrollo de una aplicación web de búsqueda de series de anime, que genere una lista de resultados en función de nuestra búsqueda, y nos permita añadir las series deseadas a una segunda lista de series favoritas, las cuales quedarán guardadas en el almacenamiento local de nuestro navegador.
 
-**Cómo utilizar la web**
+### Cómo utilizar la web ###
 
-Para usar la web haz click en el link que aparece al inicio de este documento.
-Podrás buscar la serie utilizando la caja de texto y clickando en el botón 'Buscar'.
-Para añadir una serie a la lista de favoritos, haz click sobre ella.
-Para eliminar una serie de la lista de favoritos, clicka de nuevo sobre ella, o bien, haz click en el icono 'x' que aparece junto al título de la serie en la lista de favoritos.
-Si quieres borrar todo, haz click en el botón 'Reset'.
+Para usar la web haz click en el link que aparece al inicio de este documento.  
+Podrás buscar la serie utilizando la caja de texto y clickando en el botón 'Buscar'.  
+Para añadir una serie a la lista de favoritos, haz click sobre ella.  
+Para eliminar una serie de la lista de favoritos, clicka de nuevo sobre ella, o bien, haz click en el icono 'x' que aparece junto al título de la serie en la lista de favoritos.  
+Si quieres borrar todo, haz click en el botón 'Reset'.  
 
 ## Construido con 🛠️
 
@@ -19,11 +19,6 @@ Si quieres borrar todo, haz click en el botón 'Reset'.
 ## Autora ✒️
 
 * **María Rodríguez** - [mariarguezp](https://github.com/mariarguezp)
-
-**Redes**
-<p align="left">
-<a href="https://linkedin.com/in/mariarguezp" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mariarguezp" height="30" width="40" /></a>
-</p>
 
 ## Licencia 📄
 
