@@ -190,7 +190,16 @@ function handleClickIcon(event) {
         return fav.mal_id === foundFav.mal_id 
       }) 
         favSeries.splice(indexFav, 1);
+
+        // let foundSeries;
+        // for (const serie of series) {
+        //   if (serie.mal_id === selectedSeries) {
+        //     foundSeries = serie;
+        //   }   
+        // }
+        
   }
+  
   //Pinto la lista y guardo en local store
   showFavListSection();
   renderFavList();
