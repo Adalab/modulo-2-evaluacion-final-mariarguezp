@@ -23,21 +23,28 @@ function getSeriesData() {
     .then((data) => {
       series = data.results;
       showSeriesListSection();
-      compare();
+      // compare();
+      renderSeriesList();
     });
 }
 
+//ESTA FUNCIÓN NO SIRVE PARA NADA, porque esto ya lo hace el fetch!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //Comparar búsqueda y array de resultados, y pintar resultados o no (ejecuto arriba)
-function compare() {
-  if (series) {
-    for (let i = 0; i < series.length; i++) {
-      const serie = series[i];
-      renderSeriesList(serie);
-    }
-  } else {
-    seriesListEl.innerHTML = `<p>Título no encontrado...</p>`;
-  }
-}
+// function compare() {
+//   if (series) {
+//     for (let i = 0; i < series.length; i++) {
+//       const serie = series[i];
+//       renderSeriesList(serie);
+//     }
+//     //Otra forma de hacerlo, usando un for of
+//     // for (const serie of series) {
+//     //   renderSeriesList(serie);
+      
+//     // }
+//   } else {
+//     seriesListEl.innerHTML = `<p>Título no encontrado...</p>`;
+//   }
+// }
 
 //Pintar listado de resultados
 function getSeriesListHTMLCode(serie) {
@@ -53,6 +60,7 @@ function renderSeriesList() {
     listSeriesCode += getSeriesListHTMLCode(serie);
   }
   seriesListEl.innerHTML = listSeriesCode;
+  //Ejecuto la función aquí, porque es cuando los items de la lista ya están pintados, hasta este momento no existen en el HTML
   listenListItems();
 }
 
@@ -61,7 +69,7 @@ function showSeriesListSection() {
   seriesListSection.classList.remove('hidden');
 }
 
-//Handler: al clickar en 'Buscar' ejercuto la función de fetch
+//Handler: al clickar en 'Buscar' ejecuto la función de fetch
 function handleClickSearch(event) {
   event.preventDefault();
   getSeriesData();
@@ -98,7 +106,13 @@ function handleClickFav(event) {
     //Si ya está en el array de favoritas la elimino
     const indexFav = favSeries.findIndex ((fav) => {
       return fav.mal_id === foundFav.mal_id 
-    }) 
+    })
+    //Otra forma de escribir la función sin usar arrow function
+    // const indexFav = favSeries.findIndex(
+    //   function findFavIndex(fav) {
+    //     return fav.mal_id === foundFav.mal_id;
+    //   }
+    // )
       favSeries.splice(indexFav, 1);
       //Y modifico su apariencia eliminando la clase 'fav'
       clickedSeries.classList.remove('fav');
@@ -128,7 +142,7 @@ function renderFavList() {
   if (favSeries.length === 0) {
     favListSection.classList.add('hidden');
   }
-
+  //Escucho la función aquí, porque es cuando los elementos escuchados ya están pintados
   listenFavListIcons();
 }
 
