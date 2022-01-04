@@ -25,13 +25,14 @@ function getSeriesData() {
       series = data.results;
       showSeriesListSection();
       compare();
+      //renderSeriesList(series);
     });
 }
 
-//Recoger valor search input
-function getSearchInputValue() {
-  return searchInputEl.value;
-}
+// //Recoger valor search input
+// function getSearchInputValue() {
+//   return searchInputEl.value;
+// }
 
 //Comparar input value y data
 function compare() {
@@ -47,8 +48,8 @@ function compare() {
 
 //Pintar listado de series
 function getSeriesListHTMLCode(serie) {
-  const htmlCode = `<li class ="results__item js_list_item" data-id = "${serie.mal_id}">${serie.title}
-    <img class="results__image" src="${serie.image_url}" alt="Cartel de la serie" data-id ="${serie.mal_id}">
+  const htmlCode = `<li class ="results__item js_list_item" data-id = "${serie.mal_id}">
+    <img class="results__image" src="${serie.image_url}" alt="Cartel de la serie">${serie.title}
   </li>`;
   return htmlCode;
 }
@@ -66,15 +67,40 @@ function renderSeriesList() {
   listenListItems();
 }
 
+
+// //Otra forma de hacerlo, usando DOM
+// function renderSeriesList(series) {
+// for (const eachSeries of series) {
+//   //Creo el li
+//   const seriesListItem = document.createElement('li');
+//   //Creo el título
+//   const seriesTitle = document.createTextNode(eachSeries.title);
+//   //Creo la imagen
+//   const seriesImage = document.createElement('img');
+//   //Añado a la imagen el atributo src
+//   seriesImage.setAttribute('src', eachSeries.image_url);
+//   //Meto el li dentro del ul, y el título y la imagen dentro del li
+//   seriesListEl.appendChild(seriesListItem);
+//   seriesListItem.appendChild(seriesTitle);
+//   seriesListItem.appendChild(seriesImage);
+//   //Añado clases CSS
+//   seriesListItem.classList.add('results__item');
+//   seriesImage.classList.add('results__image')
+// }
+// }
+
+
+
+
 //Handler: añadir serie seleccionada a lista de favoritas
 function handleClickFav(event) {
-
+  
   //Modifico la apariencia de la serie seleccionada
-  const clickedSeries = event.target;
+  const clickedSeries = event.currentTarget;
   clickedSeries.classList.toggle('fav');
 
   //Obtengo el id de la serie seleccionada
-  const selectedSeries = parseInt(event.target.dataset.id);
+  const selectedSeries = parseInt(event.currentTarget.dataset.id);
 
   //Busco la serie seleccionada en el array de favoritas
   let foundFav;
@@ -83,9 +109,9 @@ function handleClickFav(event) {
       foundFav = fav;
     }   
   }
-
+  //Si no está 
   if (foundFav === undefined) {
-      //Busco la serie seleccionada en el array 
+  //Busco la serie seleccionada en el array de resultados 
   let foundSeries;
   for (const serie of series) {
     if (serie.mal_id === selectedSeries) {
@@ -93,15 +119,16 @@ function handleClickFav(event) {
     }   
   }
 
-  //Añado la serie seleccionada al array de favoritas
+  //Añado la serie encontrada en el array de resultados al array de favoritas
   favSeries.push(foundSeries);
 
   } else {
-
     //Elimino la serie del array de favoritas
-    for (let i = 0; i < favSeries.length; i++) {
-      favSeries.splice(foundFav[i], 1);
-    }
+    const indexFav = favSeries.findIndex ((fav) => {
+      return fav.mal_id === foundFav.mal_id 
+    }) 
+      favSeries.splice(indexFav, 1);
+      
   }
 
   showFavListSection();
@@ -116,6 +143,7 @@ function handleClickSearch(event) {
 }
 
 //Eventos
+//Escuchar evento en botón 'Buscar'
 searchBtnEl.addEventListener("click", handleClickSearch);
 
 //Escuchar eventos en elementos de la lista de series
@@ -129,9 +157,10 @@ function listenListItems() {
 
 //Pintar listado de favoritas
 function getFavListHTMLCode(fav) {
-  const htmlCode = `<li class ="favorites__item js_list_item" data-id = "${fav.mal_id}">${fav.title}
-    <img class ="favorites__image" src="${fav.image_url}" alt="Cartel de la serie" data-id ="${fav.mal_id}">
-  </li>`;
+  const htmlCode = `<li class ="favorites__item" data-id = "${fav.mal_id}">
+  <span class="favorites__span"><img class ="favorites__image" src="${fav.image_url}" alt="Cartel de la serie">${fav.title}</span>
+  <i class="fas fa-times-circle favorites__icon js_list_icon"></i>
+</li>`;
   return htmlCode;
 }
 
@@ -144,8 +173,16 @@ function renderFavList() {
   for (const fav of favSeries) {
     favListEl.innerHTML += getFavListHTMLCode(fav);
   }
+  
+  //Ocultar la lista si el array de favoritas está vacío
+  if (favSeries.length === 0) {
+    favListSection.classList.add('hidden');
+  }
+
+  listenFavListIcons();
 }
 
+//Local Storage
 function saveFavInLocalStorage() {
   const favSeriesString = JSON.stringify(favSeries);
   localStorage.setItem('Favorite Series', favSeriesString);
@@ -163,3 +200,54 @@ function getFavFromLocalStorage() {
 }
 
 getFavFromLocalStorage();
+
+//Handler: eliminar series de lista de favoritos al clickar en 'x'
+function handleClickIcon(event) {
+  //Obtengo el id de la serie seleccionada
+  const selectedSeries = parseInt(event.currentTarget.parentElement.dataset.id);
+
+  //Busco la serie seleccionada en el array de favoritas
+  let foundFav;
+  for (const fav of favSeries) {
+    if (fav.mal_id === selectedSeries) {
+      foundFav = fav;
+    }   
+  }
+  //Si no está
+  if (foundFav !== undefined) {
+  //Elimino la serie seleccionada del array de favoritas
+  const indexFav = favSeries.findIndex ((fav) => {
+        return fav.mal_id === foundFav.mal_id 
+      }) 
+        favSeries.splice(indexFav, 1);
+
+  }
+
+  showFavListSection();
+  renderFavList();
+  saveFavInLocalStorage();
+}
+
+//Escuchar eventos en iconos de la lista de favoritas
+function listenFavListIcons() {
+  const favListIcons = document.querySelectorAll(".js_list_icon");
+
+  for (const icon of favListIcons) {
+    icon.addEventListener('click', handleClickIcon);    
+  }
+}
+
+function handleClickReset(event) {
+  event.preventDefault();
+  searchInputEl.value = '';
+  favSeries = [];
+  series = [];
+  localStorage.removeItem('Favorite Series');
+  seriesListSection.classList.add('hidden');
+  favListSection.classList.add('hidden');
+
+  renderFavList();
+  renderSeriesList();
+}
+
+resetBtnEl.addEventListener("click", handleClickReset);
