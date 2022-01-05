@@ -8,6 +8,7 @@ const seriesListEl = document.querySelector(".js_series_list");
 const favListEl = document.querySelector(".js_fav_list");
 const seriesListSection = document.querySelector(".js_series_list_section");
 const favListSection = document.querySelector(".js_fav_list_section");
+const titleBtnEl = document.querySelector(".js_title_btn");
 
 //Variables globales
 let series = [];
@@ -43,6 +44,7 @@ function compare() {
 function getSeriesListHTMLCode(serie) {
   const htmlCode = `<li class ="results__item js_list_item" data-id = "${serie.mal_id}">
     <img class="results__image" src="${serie.image_url}" alt="Cartel de la serie">${serie.title}
+    <p>Episodios: ${serie.episodes}</p>
   </li>`;
   return htmlCode;
 }
@@ -197,6 +199,15 @@ function handleClickReset(event) {
   renderSeriesList();
 }
 
+function handleClickSearchTitles(event) {
+  event.preventDefault();
+  let seriesTitle;
+  for (const serie of series) {
+     seriesTitle = serie.title;
+     console.log(seriesTitle);    
+  }
+}
+
 //Eventos
 //Escuchar evento en botón 'Buscar'
 searchBtnEl.addEventListener("click", handleClickSearch);
@@ -221,6 +232,8 @@ function listenFavListIcons() {
 
 //Ecuchar evento en el botón 'Reset'
 resetBtnEl.addEventListener("click", handleClickReset);
+
+titleBtnEl.addEventListener('click', handleClickSearchTitles);
 
 //Cargar página
 //Ejecuto la función que obtiene los datos del local store, para que me los pinte al cargar la página
