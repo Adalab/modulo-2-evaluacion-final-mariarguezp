@@ -1,4 +1,4 @@
-**http://beta.adalab.es/modulo-2-evaluacion-final-mariarguezp/**
+**http://mariarguezp.github.io/adalab-modulo-2-evaluacion-final-mariarguezp/**
 
 # Módulo 2. Evaluación final
 
